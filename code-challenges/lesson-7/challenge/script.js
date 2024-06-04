@@ -2,7 +2,17 @@
  * TODO: Implement a function that clears all the content
  * prior to generating new random content
  */
-function clearAll() {}
+function clearAll() {
+  const meme=document.querySelector('.meme-content');
+  const joke=document.querySelector('.joke-content');
+  const qoute=document.querySelector('.qoute-content');
+  const riddle=document.querySelector('.riddle-content');
+
+  meme.innerHTML='';
+  joke.innerHTML='';
+  qoute.innerHTML='';
+  riddle.innerHTML='';
+}
 
 /**
  * TODO:
@@ -12,6 +22,12 @@ function clearAll() {}
 function showMeme() {
   // Value is a string representing image URL
   const randomMemeUrl = getRandomData("memes");
+  const joke=document.querySelector('.meme-content');
+  const newElement=document.createElement('img');
+  newElement.setAttribute('src',randomMemeUrl);
+  clearAll();
+  joke.appendChild(newElement);
+  
 }
 
 /**
@@ -22,6 +38,10 @@ function showMeme() {
 function showJoke() {
   // Value is a string representing the joke
   const randomJokeText = getRandomData("jokes");
+  const newP=document.createElement('p');
+  newP.textContent= randomJokeText;
+  clearAll();
+  document.querySelector('.joke-content').appendChild(newP);
 }
 
 /**
